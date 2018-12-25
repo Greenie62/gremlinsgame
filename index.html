@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Codystar">
+    <style>
+    
+
+body{background-color:lightblue;}
+
+
+.scorecard{background-color:lightgray;
+           color:darkcyan;
+           font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif}
+
+
+/*main gametitle */           
+
+#title{background-color:purple;
+       border-radius:15px;
+       outline:2px solid silver;
+       box-shadow:2px 1px black;
+       color:greenyellow;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;} */
+
+
+
+#gamearea{
+    width:50%;
+    margin:auto;
+}
+
+.selectbox{
+  background-color:yellow;
+}
+
+footer{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+
+
+
+
+
+
+
+/* snowflakes CSS */
+
+.snowflake {
+    color: #fff;
+    font-size: 1em;
+    font-family: Arial;
+    text-shadow: 0 0 1px #000;
+  }
+  
+  @-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%{-webkit-transform:translateX(0px);transform:translateX(0px)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}100%{-webkit-transform:translateX(0px);transform:translateX(0px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%{transform:translateX(0px)}50%{transform:translateX(80px)}100%{transform:translateX(0px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}
+  /* Demo Purpose Only*/
+  .demo {
+    font-family: 'Raleway', sans-serif;
+      color:#fff;
+      display: block;
+      margin: 0 auto;
+      padding: 15px 0;
+      text-align: center;
+  }
+  .demo a{
+    font-family: 'Raleway', sans-serif;
+  color: #000;		
+  }
+    
+    
+    </style>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class='container gamegrid'>
+        
+        <div id='header-title' class='bg-primary text-center p-4 mb-2'>
+           
+                <div class="snowflakes" aria-hidden="true">
+                        <div class="snowflake">
+                        ❅
+                        </div>
+                        <div class="snowflake">
+                        ❅
+                        </div>
+                        <div class="snowflake">
+                        ❆
+                        </div>
+                        <div class="snowflake">
+                        ❄
+                        </div>
+                        <div class="snowflake">
+                        ❅
+                        </div>
+                        <div class="snowflake">
+                        ❆
+                        </div>
+                        <div class="snowflake">
+                        ❄
+                        </div>
+                        <div class="snowflake">
+                        ❅
+                        </div>
+                        <div class="snowflake">
+                        ❆
+                        </div>
+                        <div class="snowflake">
+                        ❄
+                        </div>
+                      </div>
+                      <!--HEADER CONTAINER-->
+            <div class='container'>
+                <div class='row'>
+                    <div class='col-md-6'>
+                        <h1 id='title'>Julie N Cindys Memory Game </h1>
+                        <div class='card card-body selectbox'>
+                            <img src="assets/miniongiphy.gif" style="height:60px;width:60px;;">
+                            <h1>First,</h1>
+                            <h3>Pick your minion!</h3>
+                        <select id="player">
+                            <option value="Cindy">Cindy</option>
+                            <option value="Julie">Julie</option>
+                            <option value="Ruby">Ruby</option>
+                        </select>
+                        <div class='container'>
+                            <div class='row'>
+                                <div class='col-md-8'></div>
+                                <div class='col-md-4'>
+                                        <button id='playerbutton' class='btn btn-info mt-2'>Select</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        </div>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class='card card-body scorecard'>
+                            <h2>Top Score: <span id='topscore'></span> 
+                            <hr>
+                            <span>Score:<span id='score'></span></h2>
+                            <hr>
+                            <h2>Moms Score: <span id='cindyscore'></span></h2>
+                            <h2>Julies Score: <span id='juliescore'></span></h2>
+                            <h2>Rubys Score: <span id='rubyscore'></span></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- </HEADER ENDS-->
+          
+          <!--GAME AREA-->
+      
+          <div id='gamearea'></div>
+           
+         <div id='gameovermodal' style='position:relative;top:-800px'>
+             <div class='card card-body'>
+                
+                 <h2>Nice Job <span id='currentplayer'></span> !!</h2>
+                 <h2>Your score is <span id='currentscore'></span>!!</h2>
+                 <img src="assets/gru1.jpg" style="height:90px;width:90px;position:relative;left:500px">
+             </div>
+         </div>
+        <!-- GAME-AREA ENDS-->
+
+        <footer id='footer-title' class='bg-primary text-center mt-2'>
+            Ruby n Julies Game Company &copy;
+        </footer>
+        
+    </div>
+    
+
+
+<!-- audio clips-->
+   
+<script>
+/* theme songs */
+
+var bugsLife=new Audio("assets/theme-songs/a-bugs-life.mp3")
+var songBrave=new Audio("assets/theme-songs/brave.mp3")
+var songFindingNemo=new Audio("assets/theme-songs/finding-nemo.mp3")
+var songUp=new Audio("assets/theme-songs/up.mp3")
+var songInsideOut=new Audio("assets/theme-songs/inside-out.mp3")
+var songIncredibles=new Audio("assets/theme-songs/the-incredibles.mp3")
+
+var songs=[bugsLife,songBrave,songFindingNemo,songUp,songInsideOut,songIncredibles]
+
+var soundCorrect=new Audio("assets/correct-press.mp3")
+var soundWrong=new Audio("assets/wrong-press.mp3")
+
+
+
+
+//gamecards
+
+var cards=[
+    {id:0, name:"anna", image:"assets/anna.png"},
+    {id:1, name:"elsa", image:"assets/elsa.png"},
+    {id:2, name:"grinch", image:"assets/grinch.jpg"},
+  //  {id:3, name:"grinchdog", image:"../assets/grinchdog.png"},
+   // {id:4, name:"gru", image:"../assets/gru1.jpg"},
+    {id:5, name:"minion", image:"assets/minion.jpg"},
+    {id:6, name:"olaf", image:"assets/miniontwo.jpg"},
+    {id:7, name:"miniontwo", image:"assets/olaf.png"},
+    {id:8, name:"anna", image:"assets/anna.png"},
+    {id:9, name:"elsa", image:"assets/elsa.png"},
+    {id:10, name:"grinch", image:"assets/grinch.jpg"},
+ //   {id:11, name:"grinchdog", image:"../assets/grinchdog.png"},
+  //  {id:12, name:"gru", image:"../assets/gru1.jpg"},
+    {id:13, name:"minion", image:"assets/minion.jpg"},
+    {id:14, name:"olaf", image:"assets/miniontwo.jpg"},
+    {id:15, name:"miniontwo", image:"assets/olaf.png"},
+]
+
+// random shuffle function
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+  
+    return array;
+  }
+
+
+
+// assigning html element a JS reference variable
+var gamearea=document.querySelector("#gamearea")
+var scoreboard=document.querySelector("#score")
+var gameovermodal=document.querySelector("#gameovermodal")
+var playerBtn=document.querySelector("#playerbutton")
+var playerHtml=document.querySelector("#currentplayer")
+var scoreHtml=document.querySelector("#currentscore")
+var cindyscorehtml=document.querySelector("#cindyscore")
+var juliescorehtml=document.querySelector("#juliescore")
+var rubyscorehtml=document.querySelector("#rubyscore")
+var topscorehtml=document.querySelector("#topscore")
+gameovermodal.style.display='none'
+
+//global array to get the created divs
+var domCards=[];
+var domPics=[];
+var gameCards=[];
+var player=""
+
+// getplayer function
+
+
+
+function getPlayer(){
+    player=document.getElementById("player").value;
+    console.log(player)
+    songs[Math.floor(Math.random()*songs.length)].play()
+   
+}
+
+// render the divs(gamecards)
+
+document.body.onload=function(){
+   cindyscorehtml.innerHTML=cindyhighscore
+   juliescorehtml.innerHTML=juliehighscore
+   rubyscorehtml.innerHTML=rubyhighscore
+    //select player
+    playerBtn.addEventListener("click",getPlayer)
+
+    scoreboard.innerHTML=score
+    if(cindyhighscore > juliehighscore && cindyhighscore > rubyhighscore){
+          topscorehtml.innerHTML="Cindy"
+    }
+    else if(juliehighscore > cindyhighscore && juliehighscore > rubyhighscore){
+        topscorehtml.innerHTML="Julie"
+    }
+    else if(rubyhighscore > cindyhighscore && rubyhighscore > juliehighscore){
+        topscorehtml.innerHTML="Ruby"
+    }
+    else if(rubyhighscore === 0 && cindyhighscore === 0 && juliehighscore === 0){
+        topscorehtml.innerHTML="Somebody play already!!"
+    }
+    else{
+        topscorehtml.innerHTML='A Tie??!!'
+    }
+    
+   
+    gameCards=shuffle(cards)
+    console.log(cards)
+
+    for(var i=0;i<gameCards.length;i++){
+          var card=document.createElement('div')
+          var pic=document.createElement("img")
+          pic.style.height="200px"
+          pic.style.display='none'
+          pic.setAttribute("src", cards[i].image)
+          card.className="gamecard"
+          card.setAttribute("id",i)
+          card.setAttribute("name",cards[i].name)
+          card.setAttribute("image", cards[i].image)
+          card.style.height="200px"
+          card.style.width="200px"
+          card.style.marginTop="5px"
+          card.style.backgroundColor="lightgray"
+          card.style.display="inline-block"
+          card.style.marginLeft="3px"
+          card.appendChild(pic)
+          gamearea.appendChild(card)
+          domCards.push(card)
+          domPics.push(pic)
+    }
+
+    //clickgame logic
+
+          domCards.forEach(card=>(
+              card.addEventListener("click",function(e){
+                  //safeguard condition from clicking too quickly(before values reset)
+                if(cardOne !== "" && cardTwo !== ""){console.log('chill out!!')
+                return
+                }
+                    if(!hasPicked){
+                        // assign name value;cardOne
+                        // assign img element
+                        //toggle to cardTwo condition
+                        cardOne=e.target.getAttribute("name")
+                        domPics[e.target.getAttribute("id")].style.display='block'
+                        picOne=domPics[e.target.getAttribute('id')]
+                        hasPicked=true
+                    }
+                    else{
+                        cardTwo=e.target.getAttribute("name")
+                        domPics[e.target.getAttribute("id")].style.display='block'
+                        picTwo=domPics[e.target.getAttribute('id')]
+                    
+                        pickedBoth=true                    
+                    }
+
+                    // check if cards match; reset variables to allow recursion
+            if(pickedBoth){
+                    if(cardOne === cardTwo){
+                        //counts cards to know when game is over(flimsy but...)
+                        correctCounter++
+                        // scoring logic
+                        switch(guesses){
+
+                            case 0:
+                            score+=6
+                            break;
+
+                            case 1:
+                            score+=5
+                            break;
+
+                            case 2:
+                            score+=3
+                            break;
+
+                            case 3:
+                            score+=2
+                            break;
+
+                            case 4:
+                            score+=1
+                            break;
+                        }
+                        scoreboard.innerHTML=score;
+                        console.log("nice job")
+                         soundCorrect.play()
+
+                           // reset gameplay variables
+                    
+                    cardOne=""
+                    cardTwo=""
+
+// toggle the flow of logic
+                    hasPicked=false;
+                    pickedBoth=false;
+                    picOne="";
+                    picTwo=""
+                    guesses=0;
+                    }
+
+                    if(correctCounter === 6){
+                        //gameovermodal with player/score
+                        playerHtml.innerHTML=player
+                        scoreHtml.innerHTML=score
+                        gameovermodal.style.display='block'
+                        
+                        switch(player){
+
+                            case "Cindy":
+                            if(score > cindyhighscore){
+                                console.log("hey!!")
+                                cindyhighscore=score;
+                                localStorage.setItem("cindyhighscore",JSON.stringify(cindyhighscore))
+                            }
+                            break;
+
+                            case "Ruby":
+                            if(score > rubyhighscore){
+                                rubyhighscore=score;
+                                localStorage.setItem("rubyhighscore",JSON.stringify(rubyhighscore))
+                            }
+                            break;
+
+                            case "Julie":
+                            if(score > juliehighscore){
+                                juliehighscore=score;
+                                localStorage.setItem("juliehighscore",JSON.stringify(juliehighscore))
+                            }
+                            break;
+
+
+                        }
+                        //reset game function
+                        setTimeout(function(){
+                           window.location.reload()
+
+                        },5000)
+                    }
+                    else{
+                   console.log("you stink!")
+                   soundWrong.play()
+                   // increment guesses (guesses acts as score-effecter)
+                   guesses++;
+                   // reset images back to gray DIV
+                   setTimeout(()=>{
+                   picOne.style.display="none"
+                   picTwo.style.display="none"
+
+                   // reset gameplay variables
+                    
+                    cardOne=""
+                    cardTwo=""
+
+// toggle the flow of logic
+                    hasPicked=false;
+                    pickedBoth=false;
+                    picOne="";
+                    picTwo=""
+                   },1000);
+                
+                }
+                } 
+              })
+          ))
+
+          
+
+        
+          
+        
+
+}
+
+// game variables/
+// hold 'name' values to compare right/wrong
+var cardOne=""
+var cardTwo=""
+
+// toggle the flow of logic
+var hasPicked=false;
+var pickedBoth=false;
+
+//
+var points=0;
+var score=0;
+var guesses=0;
+var correctCounter=0;
+var picOne="";
+var picTwo=""
+
+//localstorage data
+
+var cindyhighscore=JSON.parse(localStorage.getItem("cindyhighscore")) || 0
+var juliehighscore=JSON.parse(localStorage.getItem("juliehighscore")) || 0
+var rubyhighscore=JSON.parse(localStorage.getItem("rubyhighscore")) || 0
+
+
+
+
+    </script>
+
+
+</body>
+</html>
